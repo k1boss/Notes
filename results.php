@@ -27,7 +27,7 @@
     <h1>Notes</h1>
     <div class="row">
         <?php foreach($notes as $note) : ?>
-        <div class="col-4">
+        <div class="col">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $note['title']; ?></h5>
