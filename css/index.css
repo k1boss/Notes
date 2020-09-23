@@ -1,0 +1,4 @@
+.card {
+    max-height: 140px;
+    overflow-y: hidden;
+}

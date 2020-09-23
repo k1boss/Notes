@@ -1,9 +1,9 @@
 <?php
     require('config/config.php');
     require('config/db.php');
-    
+
     // Create Query
-    $query = 'SELECT * FROM notes ORDER BY id ASC';
+    $query = "SELECT * FROM notes WHERE title LIKE '%{$_GET['search']}%' OR body LIKE '%{$_GET['search']}%'";
 
     // Get Result
     $result = mysqli_query($conn, $query);
@@ -18,9 +18,12 @@
     mysqli_close($conn);
 ?>
 
-
 <?php require('inc/header.php'); ?>
+
 <div class="container">
+    <?php if(empty($notes)) : ?>
+        <h1>No Results Found</h1>
+    <?php else : ?>
     <h1>Notes</h1>
     <div class="row">
         <?php foreach($notes as $note) : ?>
@@ -35,6 +38,7 @@
         </div>
         <?php endforeach; ?>
     </div>
+    <?php endif; ?>
 
 </div>
 
