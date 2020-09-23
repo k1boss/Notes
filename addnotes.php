@@ -3,8 +3,8 @@
     require('config/db.php');
 
     if(isset($_POST['submit'])){
-        $title = $_POST['title'];
-        $body = $_POST['body'];
+        $title = mysqli_real_escape_string($conn, $_POST['title']) ;
+        $body =mysqli_real_escape_string($conn, $_POST['body']);
         
         $query = "INSERT INTO notes(title, body) VALUES('$title', '$body')";
         
